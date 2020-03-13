@@ -11,5 +11,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/WhizzoCode/spaces.git"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.1"
   }
 }
