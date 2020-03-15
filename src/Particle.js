@@ -19,6 +19,22 @@ export default class Particle {
   update() {
     this.position.x += this.speed.x;
     this.position.y += this.speed.y;
+
+    if (this.position.x < 0) {
+      this.position.x *= -1;
+      this.speed.x *= -1;
+    } else if (this.position.x > this.space.canvas.width) {
+      this.position.x -= this.position.x - this.space.canvas.width;
+      this.speed.x *= -1;
+    }
+
+    if (this.position.y < 0) {
+      this.position.y *= -1;
+      this.speed.y *= -1;
+    } else if (this.position.y > this.space.canvas.height) {
+      this.position.y -= this.position.y - this.space.canvas.height;
+      this.speed.y *= -1;
+    }
   }
 
 }
