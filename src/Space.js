@@ -6,6 +6,7 @@ export default class Space {
   ctx       = null;
   config    = null;
   particles = [];
+  started   = false;
 
   constructor(canvasId, config) {
     this.canvas = document.getElementById(canvasId);
@@ -45,11 +46,12 @@ export default class Space {
     this.ctx.fillStyle = 'white';
     this.ctx.globalAlpha = 0.7;
     this.particles.forEach((p) => {
+      this.started ? p.update() : this.started = true;
       this.ctx.beginPath();
       this.ctx.arc(p.position.x, p.position.y, p.radius, 0, 2 * Math.PI);
       this.ctx.fill();
     });
-    // requestAnimationFrame(() => {this.getNextFrame();});
+    requestAnimationFrame(() => {this.getNextFrame();});
   }
 
 }
